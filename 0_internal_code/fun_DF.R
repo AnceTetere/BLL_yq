@@ -1,4 +1,4 @@
-fun_DF <- function(x, DF, j, k_fm) {
+fun_DF <- function(x, DF, j, k_fm, order_vec) {
   
   #1 No kopējās kopss atlasa tabulu, kas dalās mēnešos.
   y <- x[x$NTABL == DF[j],]
@@ -10,12 +10,6 @@ fun_DF <- function(x, DF, j, k_fm) {
   mergeDF <- merge(y, k_fm, by.x = "NOZ2", by.y = "NOZ2")
   
   #4 Uzreiz sakārto N kodus
-  if (kops[i] == "k001") {
-    order_vec <- readRDS(paste0(base_path, "r-kods//0_internal_code//templates_and_vectors//k001n_order.rds"))
-  } else {
-    order_vec <- readRDS(paste0(base_path, "r-kods//0_internal_code//templates_and_vectors//n_order_general.rds"))
-  }
-  
   mergeDF <- mergeDF[match(order_vec, mergeDF$NOZ2),]
   rownames(mergeDF) <- NULL
   z <- mergeDF
