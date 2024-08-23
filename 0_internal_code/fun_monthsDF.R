@@ -15,9 +15,10 @@ months_df <- function(x, DF, k_fm) {
                                                  "7", "8", "9", "10", "11", "12")]
     rm(order_vec, m)
     
-    #3 Saglabā
+   #3 Saglabā
     cat(fun_saveDF(z, kop, DF, j))
     
   }
-  return(paste0("Mēnešu tabulas kopsavilkumam ", substr(kops[i], 3, 4), " gatavas.\n"))
+  rm(x, DF, k_fm, order_vec, j, m)
+  return(paste0("Mēnešu tabulas kopsi ", substr(kop, 3, 4), " gatavas.\n"))
 }
