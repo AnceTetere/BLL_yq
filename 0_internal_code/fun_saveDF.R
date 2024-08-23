@@ -12,6 +12,6 @@ fun_saveDF <- function(z, kop, DF, j) {
   write.table(z, file = paste0(p, tab_name, "_", DF_name, ".csv"), sep = ";", 
             col.names = FALSE, qmethod = "double", row.names = FALSE)
   
-  rm(list = DF_name, DF_name, z, DF, kop, j)
-  return(paste0("Gala tabulas saglabātas:\n", p, "\n"))
+  rm(list = DF_name, DF_name, z, kop)
+  return(paste0("Gala tabula Nr.", DF[j], " saglabāta:\n", p, "\n"))
 }
