@@ -16,21 +16,8 @@ months_df <- function(x, DF, k_fm) {
     rm(order_vec, m)
     
     #3 Saglabā
-    DF_name <- paste0(kops[i], "_t", monthDF[j])
-    assign(DF_name, z)
-    
-    p <- paste0(path, "1_starptabulas\\tabulas\\")
-    if(!dir.exists(p)) {dir.create(p)}
-    save(list = DF_name, file = paste0(p, "\\", tab_name, "_", DF_name, ".RData"))
-    
-    p <- paste0(path, "1_starptabulas\\2_gala_tabulas\\")
-    if(!dir.exists(p)) {dir.create(p)}
-    write.table(z, file = paste0(p, tab_name, "_", DF_name, ".csv"), sep = ";", 
-                col.names = FALSE, qmethod = "double", row.names = FALSE)
-    
-    
-    rm(list = DF_name, DF_name, z)
+    cat(fun_saveDF(z, kop, DF, j))
     
   }
-  return("Mēnešu kopsi", substr(kops[i], 3, 4), "gatavi.\n")
+  return(paste0("Mēnešu tabulas kopsavilkumam ", substr(kops[i], 3, 4), " gatavas.\n"))
 }
